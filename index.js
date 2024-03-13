@@ -151,8 +151,48 @@ app.get("/counattendancebyemail", async (req, res) => {
       }
     }
   }
-
   data.push({ total: hashMap[req.query.email] });
+
+  try {
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(400).send("Cannot get data");
+  }
+});
+
+app.get("/employeedatabyemail", async (req, res) => {
+  doc = await authenticateWithGoogle();
+  const data = [];
+  const emaillookup = req.query.email;
+  sheet = doc.sheetsByIndex[2];
+  const rows = await sheet.getRows();
+  for (let i = 0; i < rows.length; i++) {
+    const id = rows[i].get("id");
+    const firstName = rows[i].get("first_name");
+    const lastName = rows[i].get("last_name");
+    const email = rows[i].get("email");
+    const gender = rows[i].get("gender");
+    const phone = rows[i].get("phone");
+    const address = rows[i].get("address");
+    const derpartment = rows[i].get("department");
+    const position = rows[i].get("position");
+    if (emaillookup === email && emaillookup !== "") {
+      data.push({
+        id: id,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        gender: gender,
+        phone: phone,
+        address: address,
+        derpartment: derpartment,
+        position: position,
+      });
+    }
+  }
+  if (!data.length) {
+    data.push({ message: "No data found" });
+  }
 
   try {
     res.status(200).json(data);
