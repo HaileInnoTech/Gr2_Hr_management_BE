@@ -103,60 +103,60 @@ app.get("/countattendance", async (req, res) => {
   }
 });
 
-// app.get("/counattendancebyemail", async (req, res) => {
-//   console.log(req.query.email);
-//   console.log(req.query.monthfilter);
-//   doc = await authenticateWithGoogle();
-//   const data = [];
-//   const hashMap = {};
-//   sheet = doc.sheetsByIndex[3];
-//   const rows = await sheet.getRows();
-//   for (let i = 0; i < rows.length; i++) {
-//     const email = rows[i].get("email");
-//     if (email === req.query.email) {
-//       if (!req.query.monthfilter || req.query.monthfilter === "") {
-//         const date = rows[i].get("date");
-//         const checkin = rows[i].get("checkin");
-//         const checkout = rows[i].get("checkout");
-//         data.push({
-//           email: email,
-//           date: date,
-//           checkin: checkin,
-//           checkout: checkout,
-//         });
-//         if (hashMap[email]) {
-//           hashMap[email]++;
-//         } else {
-//           hashMap[email] = 1;
-//         }
-//       } else {
-//         const date = rows[i].get("date");
-//         const curdate = new Date(date);
-//         if (curdate.getMonth() + 1 === parseInt(req.query.monthfilter)) {
-//           const checkin = rows[i].get("checkin");
-//           const checkout = rows[i].get("checkout");
-//           data.push({
-//             email: email,
-//             date: date,
-//             checkin: checkin,
-//             checkout: checkout,
-//           });
-//           console.log(data);
-//           if (hashMap[email]) {
-//             hashMap[email]++;
-//           } else {
-//             hashMap[email] = 1;
-//           }
-//         }
-//       }
-//     }
-//   }
+app.get("/counattendancebyemail", async (req, res) => {
+  console.log(req.query.email);
+  console.log(req.query.monthfilter);
+  doc = await authenticateWithGoogle();
+  const data = [];
+  const hashMap = {};
+  sheet = doc.sheetsByIndex[3];
+  const rows = await sheet.getRows();
+  for (let i = 0; i < rows.length; i++) {
+    const email = rows[i].get("email");
+    if (email === req.query.email) {
+      if (!req.query.monthfilter || req.query.monthfilter === "") {
+        const date = rows[i].get("date");
+        const checkin = rows[i].get("checkin");
+        const checkout = rows[i].get("checkout");
+        data.push({
+          email: email,
+          date: date,
+          checkin: checkin,
+          checkout: checkout,
+        });
+        if (hashMap[email]) {
+          hashMap[email]++;
+        } else {
+          hashMap[email] = 1;
+        }
+      } else {
+        const date = rows[i].get("date");
+        const curdate = new Date(date);
+        if (curdate.getMonth() + 1 === parseInt(req.query.monthfilter)) {
+          const checkin = rows[i].get("checkin");
+          const checkout = rows[i].get("checkout");
+          data.push({
+            email: email,
+            date: date,
+            checkin: checkin,
+            checkout: checkout,
+          });
+          console.log(data);
+          if (hashMap[email]) {
+            hashMap[email]++;
+          } else {
+            hashMap[email] = 1;
+          }
+        }
+      }
+    }
+  }
 
-//   data.push({ total: hashMap[req.query.email] });
+  data.push({ total: hashMap[req.query.email] });
 
-//   try {
-//     res.status(200).json(data);
-//   } catch (err) {
-//     res.status(400).send("Cannot get data");
-//   }
-// });
+  try {
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(400).send("Cannot get data");
+  }
+});
