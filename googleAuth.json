@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "smart-farming-system-f9435",
+  "private_key_id": "6a816771ed02772c6a6bb7067aed8c8d4f010259",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQCl4VjxYjERxprL\nyfHTRR+oq/owELBvgBjA6uBWJtBQo6y/82bMukC5gSIuvNai4CC68RAP0L1Qw21v\nCh/xIiWYGBFiT8E9YG9nU9SdOKKgvkdBorr6h21xsm/maIXgy+iEqbCEbsywBXXL\nb6xV3tu9GJ+Xzy/+zbB78eObgV7tI5DCvutsq16koj2NG470wUn4nZkKr6uE2Pl8\na7WIiuQESql2cw/E/zFV8SmpUVr8lqzmVD2GZXDu/uZtEiFk5xjAZWqllxLMWAny\no0afrvieIkrc+KeZjcsC1GkVY0pL5orgNXLR8YoAz72WNk6wEriVrvSLAAOQZEgd\nVFu2dSldAgMBAAECggEABmETLZKWy9XfxW81DeiTnhtMWiWE03+RSXdUPJvuLkZi\ncgNR9GpD655hX9DCpFg1igWT640d1V7z9MLmlZG4RmVujbb+zyBynaj7UoyHXI0q\nFQZwEGBoP2jFpY5mz6Kn2io4b+9e5HS2ofs1HRxJRmK4XdCJn6VDYJDd2EYdDhuH\nJG72A0XZjfA/87ytWPomt7UD6DW6EAx2ubKHIIb+OFf/FTmCTHpEpuxMkN6GHEMT\n3VojmPaJw/PoU1pM2zPm2PJ2/69YzDemVrQmJDhjQS19dODyUReHfFDrQt5exwGN\ncHffXoorAnjpA1F9t+jtowzE1/wkB45eOUHsU3ZPgQKBgQDeDHegJAb4aSXAnXqs\nSVVD5Nv0lcxwtfPC4yjw2uuWOIAxRh9PoEp++/PR7MEfP8Pk3hk2SSVSHcDWDyYf\nJ6zh8QMAJyWR4wO7T8lwrL1HaOZ+q+ojSyHUi0uv1gnp4KRCjINLjcB/QHtYYa0f\nva+6Uh0VH6FagWxIkG9K7PchfQKBgQC/Pk8r6FSLxLuCQMou/Ji2oH9JQRaZMW+u\ncIEEXAMtOW9QfBvdmeX7DxnNLDfDu56Gky7piRQZSFH6Xdu8VtCSepszhvltlsWk\nF3EppGhZmAXu0yCtvpvY0rTQ1YvtvNtgdy5lDJN6nuLaq0rQNJS+I6Jn/llGh1xx\nfI9yfvCtYQJ/Qsl9Ma2kaxM1R7oWK7vi6Yjsn6Ru2Xfg2b15kvhF4+kapbdxs4GC\n5q7hp0KO09daFHy5GJrnnstUNQ5ZaQWF+m+Dd4hOxJKDjNNyw3ExfUkQCwmqYvM2\nObesDDdUxAPNZDbfRtpcC+pZLzwx1lo3gNMx7CiXX6GN8EWBNAgSTQKBgQCghAzx\nnoRv98Umc3j/7RXEm3uaoZ31INBLSrSPUyd7auyqUjEVU5n7mlYeppF7oNtSuvCy\nJVMQUWo1SVgogXl4qJ3hptVuDRGARAjAWfUX1giMxvpzujuWxmvrqIFVHqHHGuF/\nAQo77mYcAY++p5N87+3deVe3Yd/OhSzlffRGoQKBgAxO49xzDYNSbHyKnELZCrNK\nrLS10kCFX/oFX0ZV+LVJSVJpAPpDJ8Wb6C3bAco60pbZCjNcou/sOHGEBQyXWoOu\nEj6RAbEZ5r/q3SRnezCriztKrVskFo9Wyb6B/dEaxDCjvV04d0G5Md8wnnMs2B6+\ntojnIYj+uoq22ztW+AFd\n-----END PRIVATE KEY-----\n",
+  "client_email": "test-603@smart-farming-system-f9435.iam.gserviceaccount.com",
+  "client_id": "112507397838670019300",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/test-603%40smart-farming-system-f9435.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
