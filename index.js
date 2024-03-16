@@ -154,10 +154,8 @@ app.get("/counattendancebyemail", async (req, res) => {
   }
   if (!data.length) {
     data.push({ message: "No data found" });
-  }
-  else{
+  } else {
     data.push({ total: hashMap[req.query.email] });
-
   }
 
   try {
@@ -216,12 +214,12 @@ app.get("/employeesalarybyemail", async (req, res) => {
   const rows = await sheet.getRows();
   for (let i = 0; i < rows.length; i++) {
     const email = rows[i].get("email");
-    if (emaillookup === email){
+    if (emaillookup === email) {
       const id = rows[i].get("id");
-      const base_salary = rows[i].get("base_salary"); 
+      const base_salary = rows[i].get("base_salary");
       const total_work_hour = rows[i].get("total_work_hour");
       let bonus = rows[i].get("bonus");
-      if(bonus === ""){
+      if (bonus === "") {
         bonus = 0;
       }
       const actual_payment = rows[i].get("actual_pay");
@@ -243,6 +241,29 @@ app.get("/employeesalarybyemail", async (req, res) => {
   } catch (err) {
     res.status(400).send("Cannot get data");
   }
+});
 
-
+app.post("/updateemployeebonus", async (req, res) => {
+  doc = await authenticateWithGoogle();
+  const data = [];
+  const emaillookup = req.query.email;
+  const bonus_update = req.query.bonus;
+  sheet = doc.sheetsByIndex[4];
+  const rows = await sheet.getRows();
+  for (let i = 0; i < rows.length; i++) {
+    const email = rows[i].get("email");
+    if (emaillookup === email && emaillookup !== "" && bonus_update !== "") {
+      await sheet.loadCells("A1:F310");
+      const cell = await sheet.getCellByA1(`E${i + 2}`);
+      console.log(`E${i + 2}`);
+      console.log(cell.value);
+      cell.value = Number(bonus_update);
+      await sheet.saveUpdatedCells(); // save all updates in one call
+    }
+  }
+  try {
+    res.status(200).json("Update bonus successfully");
+  } catch (err) {
+    res.status(400).send("Cannot get data");
+  }
 });
