@@ -123,6 +123,7 @@ app.get("/counattendancebyemail", async (req, res) => {
           date: date,
           checkin: checkin,
           checkout: checkout,
+          hourwork: hourwork,
         });
         if (hashMap[email]) {
           hashMap[email]++;
@@ -151,7 +152,13 @@ app.get("/counattendancebyemail", async (req, res) => {
       }
     }
   }
-  data.push({ total: hashMap[req.query.email] });
+  if (!data.length) {
+    data.push({ message: "No data found" });
+  }
+  else{
+    data.push({ total: hashMap[req.query.email] });
+
+  }
 
   try {
     res.status(200).json(data);
@@ -199,4 +206,43 @@ app.get("/employeedatabyemail", async (req, res) => {
   } catch (err) {
     res.status(400).send("Cannot get data");
   }
+});
+
+app.get("/employeesalarybyemail", async (req, res) => {
+  doc = await authenticateWithGoogle();
+  const data = [];
+  const emaillookup = req.query.email;
+  sheet = doc.sheetsByIndex[4];
+  const rows = await sheet.getRows();
+  for (let i = 0; i < rows.length; i++) {
+    const email = rows[i].get("email");
+    if (emaillookup === email){
+      const id = rows[i].get("id");
+      const base_salary = rows[i].get("base_salary"); 
+      const total_work_hour = rows[i].get("total_work_hour");
+      let bonus = rows[i].get("bonus");
+      if(bonus === ""){
+        bonus = 0;
+      }
+      const actual_payment = rows[i].get("actual_pay");
+      data.push({
+        id: id,
+        email: email,
+        base_salary: base_salary,
+        total_work_hour: total_work_hour,
+        bonus: bonus,
+        actual_payment: actual_payment,
+      });
+    }
+  }
+  if (!data.length) {
+    data.push({ message: "No data found" });
+  }
+  try {
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(400).send("Cannot get data");
+  }
+
+
 });
