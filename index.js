@@ -123,7 +123,6 @@ app.get("/counattendancebyemail", async (req, res) => {
           date: date,
           checkin: checkin,
           checkout: checkout,
-          hourwork: hourwork,
         });
         if (hashMap[email]) {
           hashMap[email]++;
