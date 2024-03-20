@@ -266,3 +266,31 @@ app.post("/updateemployeebonus", async (req, res) => {
     res.status(400).send("Cannot get data");
   }
 });
+
+app.get("/employeepayrolldata", async (req, res) => {
+  doc = await authenticateWithGoogle();
+  const data = [];
+  sheet = doc.sheetsByIndex[4];
+  const rows = await sheet.getRows();
+  for (let i = 0; i < rows.length; i++) {
+    const id = rows[i].get("id");
+   const email = rows[i].get("email");
+   const base_salary = rows[i].get("base_salary");
+    const total_work_hour = rows[i].get("total_work_hour");
+    let bonus = rows[i].get("bonus");
+    const actual_pay = rows[i].get("actual_pay");
+    data.push({
+      id: id,
+      email: email,
+      base_salary: base_salary,
+      total_work_hour: total_work_hour,
+      bonus: bonus,
+      actual_pay: actual_pay,
+    });
+  }
+  try {
+    res.status(200).json(data);
+  } catch (err) {
+    res.status(400).send("Cannot get data");
+  }
+});
