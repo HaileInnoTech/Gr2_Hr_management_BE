@@ -35,3 +35,9 @@ GET /employeedata HTTP/1.1
 Host: gr2-hr-management-be.onrender.com
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6ImhhaTI4MDIyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcxMTAzODU3NH0.XBYAmce7RkKkDz7-sI-e5iSocc5brBvL6SB8AdJVkjM
+
+###
+GET /employeepayrolldata HTTP/1.1
+Host: gr2-hr-management-be.onrender.com
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6ImhhaTI4MDIyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcxMTA0MjM0NH0.R8rQG6YtblWD2fmXLj__8fYMSXeqyQK7zw70264h_3g
