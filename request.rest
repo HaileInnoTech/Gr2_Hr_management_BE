@@ -1,7 +1,8 @@
+
 POST /user/signup HTTP/1.1
-Host: localhost:4000
+Host: gr2-hr-management-be.onrender.com
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6ImhhaTI4MDIyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcxMDk5MzIxMH0.bl4NHz0DDb24JWHj36F9URmW7IUVLfnjPLJUpCPkcU4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsImVtYWlsIjoiaGFpMzA0QGdtYWlsLmNvbSIsImlhdCI6MTcxMTAzNzc5NH0.tjwuXi31Bn3BStmD9vW47KPm4QrgpKtNovqxEpAgEKo
 
 {
     "id": "304",
@@ -20,11 +21,17 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iL
 
 ###POST /user/signup HTTP/1.1
 POST /user/login HTTP/1.1
-Host: localhost:4000
+Host: gr2-hr-management-be.onrender.com
 Content-Type: application/json
 
 {
-    "email": "hai28022002@gmail.com", "password": "hoanghai2002"
-
+    "email": "hai304@gmail.com",
+    "password": "hoanghai2002"
 }
 
+
+###
+GET /employeedata HTTP/1.1
+Host: gr2-hr-management-be.onrender.com
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6ImhhaTI4MDIyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcxMTAzODU3NH0.XBYAmce7RkKkDz7-sI-e5iSocc5brBvL6SB8AdJVkjM

@@ -383,7 +383,6 @@ const verifyUser = async (email, password, doc) => {
       return false; // Handle the error according to your needs
     }
   }
-
   return false; // If no matching user is found
 };
 
@@ -421,13 +420,15 @@ function verifyAdminToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
   console.log(token);
-  if (token == null) return res.status(401).json("Unauthorized");
+  if (token == null) return res.status(401).json({ message: "Unauthorized" });
 
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403);
+    if (err) return res.sendStatus(403).json({ message: "Forbidden" });
     const userRole = user.role;
     if (userRole !== "admin") {
-      return res.status(403).json("Forbidden. Only admin users allowed.");
+      return res
+        .status(403)
+        .json({ message: "Forbidden. Only admin users allowed." });
     }
     req.user = user;
     next();
