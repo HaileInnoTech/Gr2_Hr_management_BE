@@ -1,0 +1,30 @@
+POST /user/signup HTTP/1.1
+Host: localhost:4000
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6ImhhaTI4MDIyMDAyQGdtYWlsLmNvbSIsImlhdCI6MTcxMDk5MzIxMH0.bl4NHz0DDb24JWHj36F9URmW7IUVLfnjPLJUpCPkcU4
+
+{
+    "id": "304",
+    "firstName": "Hai",
+    "lastName": "Le",
+    "email": "hai304@gmail.com",
+    "gender": "Male",
+    "phone": "702917344",
+    "address": "78K4Cong65 Hoa",
+    "department": "IT",
+    "position": "Full Stack",
+    "password": "hoanghai2002",
+    "role": "user"
+}
+
+
+###POST /user/signup HTTP/1.1
+POST /user/login HTTP/1.1
+Host: localhost:4000
+Content-Type: application/json
+
+{
+    "email": "hai28022002@gmail.com", "password": "hoanghai2002"
+
+}
+
