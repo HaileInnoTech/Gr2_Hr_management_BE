@@ -267,7 +267,7 @@ app.post("/updateemployeebonus", async (req, res) => {
   }
 });
 
-app.get("/employeepayrolldata", async (req, res) => {
+app.get("/employeepayrolldata", verifyAdminToken, async (req, res) => {
   doc = await authenticateWithGoogle();
   const data = [];
   sheet = doc.sheetsByIndex[4];
